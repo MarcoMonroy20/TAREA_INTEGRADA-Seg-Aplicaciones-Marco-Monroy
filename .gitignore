@@ -1,0 +1,9 @@
+.venv/
+.herramientas/
+datos_locales/
+.pruebas_temporales/
+__pycache__/
+*.pyc
+*.bundle
+~$*
+evidencias/repositorio_ficticio/
