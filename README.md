@@ -1,6 +1,6 @@
-# Portal universitario de laboratorio
+# laboratorio
 
-Proyecto individual de Seguridad en Aplicaciones, semanas 4 y 5. Implementa registro e inicio de sesión, expedientes, búsqueda, comentarios y reportes con información ficticia.
+Implementa registro e inicio de sesión, expedientes, búsqueda, comentarios y reportes con información ficticia.
 
 ## Inicio en Windows
 
@@ -60,7 +60,3 @@ No ejecute el servidor como administrador. Use una cuenta local sin privilegios 
 Una credencial expuesta debe revocarse en el servicio que la reconoce, investigarse y sustituirse. Borrar una línea de Git no invalida una credencial ni elimina sus versiones anteriores. La prueba utiliza una regla propia de Gitleaks para una credencial sintética; detectarla no equivale a verificar su validez en un proveedor externo.
 
 Para rotar la clave de sesión, genere otro valor aleatorio, actualice la fuente externa y reinicie el proceso. Las sesiones anteriores dejarán de validar. Para rotar AES, haga una copia protegida de la base y la clave vigente; descifre cada expediente con la clave anterior y vuelva a cifrarlo con una nueva clave y un nonce nuevo. Verifique todas las lecturas antes de retirar la clave anterior. Este procedimiento se documenta, pero no se automatiza en el laboratorio.
-
-## Límite de uso
-
-El servidor de Werkzeug se utiliza exclusivamente para el laboratorio local; no es una instalación de producción. No incorpora correo de recuperación, MFA, protección distribuida contra abuso ni una bóveda empresarial. El límite de búsqueda es de 100 filas y el de comentarios visibles es de 50. Todos los datos son ficticios.
