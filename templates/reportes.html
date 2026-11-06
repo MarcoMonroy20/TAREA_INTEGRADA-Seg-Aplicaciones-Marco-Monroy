@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Exportación académica</p><h1>Generación de reportes</h1><p>Descargue los estudiantes y sus calificaciones.</p></div>
+<section class="panel ancho"><h2>Reporte de estudiantes</h2><p>El archivo contiene identificador, nombre, apellido y calificación. Se requiere acceso administrativo.</p><form method="post" action="{{ url_for('descargar_reporte') }}"><input type="hidden" name="csrf_token" value="{{ session['csrf'] }}"><label for="formato">Formato de descarga</label><select id="formato" name="formato"><option value="csv">CSV</option><option value="zip">ZIP con archivo CSV</option></select><button type="submit">Descargar reporte</button></form><p class="secundario">Conserve el reporte dentro del entorno de laboratorio.</p></section>
+{% endblock %}

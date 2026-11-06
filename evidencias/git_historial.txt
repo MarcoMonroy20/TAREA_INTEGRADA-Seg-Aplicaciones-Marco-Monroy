@@ -1,0 +1,2 @@
+0015c89 Retirar la credencial ficticia del cÃ³digo actual
+e7cb892 Agregar configuraciÃ³n ficticia del laboratorio

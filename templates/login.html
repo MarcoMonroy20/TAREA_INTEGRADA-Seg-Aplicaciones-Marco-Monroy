@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block titulo %}Ingreso al portal{% endblock %}
+{% block contenido %}
+<section class="acceso">
+  <div class="introduccion"><p class="sobretitulo">Gestión académica</p><h1>Un espacio para consultar y administrar expedientes.</h1><p>Ingrese con su cuenta de laboratorio para acceder a la información y los servicios del portal.</p><div class="linea"></div><p class="secundario">Acceso por rol<br>Consulta de expedientes<br>Comentarios y reportes</p></div>
+  <div class="panel"><p class="sobretitulo">Bienvenido</p><h2>Iniciar sesión</h2><p class="secundario">Utilice las credenciales de su cuenta ficticia.</p>
+    <form method="post"><input type="hidden" name="csrf_token" value="{{ session['csrf'] }}">
+      <label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" maxlength="254" autocomplete="username" required>
+      <label for="password">Contraseña</label><input id="password" name="password" type="password" maxlength="128" autocomplete="current-password" required>
+      <button type="submit">Ingresar al portal</button>
+    </form><p class="secundario">¿Necesita una cuenta? <a href="{{ url_for('registro') }}">Registrar estudiante</a></p>
+  </div>
+</section>
+{% endblock %}

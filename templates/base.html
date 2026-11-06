@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Portal universitario{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <header class="cabecera">
+    <a class="marca" href="{{ url_for('inicio') }}"><span class="emblema">U</span><span>Portal universitario<small>Seguridad en aplicaciones · MASI</small></span></a>
+    <span class="etiqueta">Laboratorio local</span>
+  </header>
+  {% if g.user %}
+  <nav aria-label="Navegación principal">
+    <a href="{{ url_for('inicio') }}">Inicio</a>
+    {% if g.user['rol'] == 'administrador' %}
+    <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+    <a href="{{ url_for('reportes') }}">Reportes</a>
+    <a href="{{ url_for('administracion') }}">Administración</a>
+    {% else %}<a href="{{ url_for('expediente', ident=g.user['estudiante_id']) }}">Mi expediente</a>{% endif %}
+    <a href="{{ url_for('comentarios') }}">Comentarios</a>
+    <form method="post" action="{{ url_for('logout') }}" class="salir"><input type="hidden" name="csrf_token" value="{{ session['csrf'] }}"><button class="enlace" type="submit">Cerrar sesión</button></form>
+  </nav>
+  {% endif %}
+  <main id="contenido">
+    {% for tipo, mensaje in get_flashed_messages(with_categories=true) %}<p class="aviso {{ tipo }}" role="status">{{ mensaje }}</p>{% endfor %}
+    {% block contenido %}{% endblock %}
+  </main>
+  <footer>Entorno académico · Todos los datos son ficticios · Semanas 4 y 5</footer>
+</body>
+</html>

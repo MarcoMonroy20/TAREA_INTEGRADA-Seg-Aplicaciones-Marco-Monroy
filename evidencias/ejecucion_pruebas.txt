@@ -1,0 +1,26 @@
+test_01_validaciones_y_normalizacion (__main__.ControlesDelPortal.test_01_validaciones_y_normalizacion) ... ok
+test_02_sql_vulnerable_y_corregido (__main__.ControlesDelPortal.test_02_sql_vulnerable_y_corregido) ... ok
+test_03_busqueda_legitima (__main__.ControlesDelPortal.test_03_busqueda_legitima) ... ok
+test_04_xss_almacenado_y_reflejado (__main__.ControlesDelPortal.test_04_xss_almacenado_y_reflejado) ... ok
+test_05_reportes_sin_shell (__main__.ControlesDelPortal.test_05_reportes_sin_shell) ... ok
+test_06_argon2id_y_sal (__main__.ControlesDelPortal.test_06_argon2id_y_sal) ... ok
+test_07_login_incorrecto_y_logging (__main__.ControlesDelPortal.test_07_login_incorrecto_y_logging) ... ok
+test_08_cifrado_integridad_y_vinculacion (__main__.ControlesDelPortal.test_08_cifrado_integridad_y_vinculacion) ... ok
+test_09_secretos_externos_y_fallo_sin_claves (__main__.ControlesDelPortal.test_09_secretos_externos_y_fallo_sin_claves) ... ok
+test_10_tls_real_con_validacion (__main__.ControlesDelPortal.test_10_tls_real_con_validacion) ... ok
+test_11_error_interno_sin_secretos (__main__.ControlesDelPortal.test_11_error_interno_sin_secretos) ... ok
+test_12_estudiante_no_ve_expediente_ajeno (__main__.ControlesDelPortal.test_12_estudiante_no_ve_expediente_ajeno) ... ok
+test_13_modificacion_y_eventos (__main__.ControlesDelPortal.test_13_modificacion_y_eventos) ... ok
+test_14_csrf_y_cookies (__main__.ControlesDelPortal.test_14_csrf_y_cookies) ... ok
+test_15_rechazo_de_http_y_host_ajeno (__main__.ControlesDelPortal.test_15_rechazo_de_http_y_host_ajeno) ... ok
+test_16_bloqueo_temporal (__main__.ControlesDelPortal.test_16_bloqueo_temporal) ... ok
+test_17_registro_y_duplicados (__main__.ControlesDelPortal.test_17_registro_y_duplicados) ... ok
+test_18_nota_invalida_no_modifica (__main__.ControlesDelPortal.test_18_nota_invalida_no_modifica) ... ok
+test_19_fallo_de_logging_rechaza_operacion (__main__.ControlesDelPortal.test_19_fallo_de_logging_rechaza_operacion) ... ok
+test_21_tls_canal_autenticado_en_memoria (__main__.ControlesDelPortal.test_21_tls_canal_autenticado_en_memoria) ... ok
+test_20_credencial_borrada_permanece_en_historial (__main__.SecretosEnGit.test_20_credencial_borrada_permanece_en_historial) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 3.370s
+
+OK

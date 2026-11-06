@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Panel principal</p><h1>Gestión académica</h1><p>Su sesión está activa como {{ g.user['rol'] }}.</p></div>
+<div class="tarjetas">
+{% if g.user['rol'] == 'administrador' %}
+<a class="tarjeta" href="{{ url_for('estudiantes') }}"><span class="numero">01</span><h2>Estudiantes</h2><p>Busque registros y consulte o actualice sus expedientes.</p><span class="accion">Consultar estudiantes →</span></a>
+<a class="tarjeta" href="{{ url_for('reportes') }}"><span class="numero">02</span><h2>Reportes</h2><p>Descargue la información académica en CSV o ZIP.</p><span class="accion">Generar reporte →</span></a>
+{% else %}<a class="tarjeta" href="{{ url_for('expediente', ident=g.user['estudiante_id']) }}"><span class="numero">01</span><h2>Mi expediente</h2><p>Consulte su calificación y las observaciones académicas.</p><span class="accion">Consultar expediente →</span></a>{% endif %}
+<a class="tarjeta" href="{{ url_for('comentarios') }}"><span class="numero">03</span><h2>Comentarios</h2><p>Publique y consulte mensajes del laboratorio.</p><span class="accion">Ver comentarios →</span></a>
+</div>
+<section class="nota"><h2>Alcance del entorno</h2><p>Este portal se utiliza para verificar controles de seguridad con cuentas, expedientes y credenciales ficticias.</p></section>
+{% endblock %}

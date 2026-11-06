@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Directorio académico</p><h1>Estudiantes</h1><p>Busque por nombre, apellido o identificador.</p></div>
+<section class="panel"><form class="busqueda" method="get"><div><label for="q">Buscar estudiante</label><input id="q" name="q" value="{{ termino }}" maxlength="80" placeholder="Nombre o MASI-0001"></div><button type="submit">Buscar</button></form>
+<div class="tabla"><table><caption>Resultados de la búsqueda</caption><thead><tr><th scope="col">Identificador</th><th scope="col">Nombre</th><th scope="col">Apellido</th><th scope="col">Expediente</th></tr></thead><tbody>
+{% for alumno in estudiantes %}<tr><td>{{ alumno['carnet'] }}</td><td>{{ alumno['nombre'] }}</td><td>{{ alumno['apellido'] }}</td><td><a href="{{ url_for('expediente', ident=alumno['id']) }}">Consultar</a></td></tr>{% else %}<tr><td colspan="4">No se encontraron estudiantes.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

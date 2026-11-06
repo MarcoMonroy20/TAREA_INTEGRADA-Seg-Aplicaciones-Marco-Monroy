@@ -1,0 +1,70 @@
+[
+  {
+    "Archivo": "datos_locales",
+    "Reglas": [
+      {
+        "Identidad": "SYSTEM",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": false
+      },
+      {
+        "Identidad": "USUARIO_ACTUAL",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": false
+      }
+    ]
+  },
+  {
+    "Archivo": "datos_locales\\config.json",
+    "Reglas": [
+      {
+        "Identidad": "SYSTEM",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      },
+      {
+        "Identidad": "USUARIO_ACTUAL",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      }
+    ]
+  },
+  {
+    "Archivo": "datos_locales\\servidor.key",
+    "Reglas": [
+      {
+        "Identidad": "SYSTEM",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      },
+      {
+        "Identidad": "USUARIO_ACTUAL",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      }
+    ]
+  },
+  {
+    "Archivo": "datos_locales\\portal.sqlite3",
+    "Reglas": [
+      {
+        "Identidad": "SYSTEM",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      },
+      {
+        "Identidad": "USUARIO_ACTUAL",
+        "Tipo": "Allow",
+        "Permisos": "FullControl",
+        "Heredado": true
+      }
+    ]
+  }
+]

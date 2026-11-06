@@ -1,0 +1,293 @@
+{
+  "fecha_utc": "2026-11-05T23:12:38.932780+00:00",
+  "total": 21,
+  "fallos": 0,
+  "errores": 0,
+  "omitidas": 0,
+  "casos": [
+    {
+      "prueba": "test_01_validaciones_y_normalizacion",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_02_sql_vulnerable_y_corregido",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_03_busqueda_legitima",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_04_xss_almacenado_y_reflejado",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_05_reportes_sin_shell",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_06_argon2id_y_sal",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_07_login_incorrecto_y_logging",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_08_cifrado_integridad_y_vinculacion",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_09_secretos_externos_y_fallo_sin_claves",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_10_tls_real_con_validacion",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_11_error_interno_sin_secretos",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_12_estudiante_no_ve_expediente_ajeno",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_13_modificacion_y_eventos",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_14_csrf_y_cookies",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_15_rechazo_de_http_y_host_ajeno",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_16_bloqueo_temporal",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_17_registro_y_duplicados",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_18_nota_invalida_no_modifica",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_19_fallo_de_logging_rechaza_operacion",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_21_tls_canal_autenticado_en_memoria",
+      "estado": "APROBADA"
+    },
+    {
+      "prueba": "test_20_credencial_borrada_permanece_en_historial",
+      "estado": "APROBADA"
+    }
+  ],
+  "detalles": {
+    "validacion": {
+      "normalizacion_unicode": true,
+      "rangos_y_formatos": true,
+      "busqueda_con_apostrofos_permitida": true
+    },
+    "sql": {
+      "entrada": "' OR 1=1 --",
+      "consulta_vulnerable": "SELECT nombre FROM estudiantes WHERE nombre = '' OR 1=1 --'",
+      "filas_vulnerable": 2,
+      "filas_parametrizada": 0,
+      "portal_corregido_http": 200,
+      "causa": "Concatenar datos dentro de la instrucción SQL"
+    },
+    "xss": {
+      "entrada": "<script>alert('prueba')</script>",
+      "guardada_como_dato": true,
+      "salida_codificada": true,
+      "etiquetas_script_activas": 0,
+      "reflejado_codificado": true,
+      "uso_de_innerHTML": false,
+      "salida_html_observada": "&lt;script&gt;alert(&#39;prueba&#39;)&lt;/script&gt;"
+    },
+    "comandos": {
+      "implementacion": "zipfile.ZipFile en memoria",
+      "shell_ejecutado": false,
+      "formato_malicioso_http": 400,
+      "zip_valido": true,
+      "nombre_de_archivo_controlado": "estudiantes.csv"
+    },
+    "passwords": {
+      "hash_de_cuenta_ficticia": "$argon2id$v=19$m=19456,t=2,p=1$XgnkjUB7gUzYQjfuoiej/Q$dkJ/AqNS5jPtT4F2mhcVyrGQWDuf0rlbHE2THQZ034c",
+      "primer_hash_misma_password": "$argon2id$v=19$m=19456,t=2,p=1$TetnibPt2qrQUrZ0QTOUNQ$3Szn6D/E3P8nYwy44s5fl+DNMxC8SbGWPfVhSH/t794",
+      "segundo_hash_misma_password": "$argon2id$v=19$m=19456,t=2,p=1$xOIgiIUe/LJLRZ6LEYZA7Q$3+/RFgD/6hiId6x0qDT4lZLvzUvmfqnzKUEqS9kaJmQ",
+      "primera_sal": "TetnibPt2qrQUrZ0QTOUNQ",
+      "segunda_sal": "xOIgiIUe/LJLRZ6LEYZA7Q",
+      "sal_aleatoria_hashes_distintos": true,
+      "password_correcta_aceptada": true,
+      "password_incorrecta_rechazada": true
+    },
+    "login_fallido": {
+      "http": 401,
+      "registro": {
+        "fecha_utc": "2026-11-05T23:12:36.361581+00:00",
+        "evento": "login_fallido",
+        "actor_id": null,
+        "objeto_id": 1,
+        "resultado": "rechazado",
+        "solicitud_id": "2240e82d-5816-46b3-b1b3-7a60ac25d549"
+      },
+      "password_en_log": false,
+      "correo_en_log": false,
+      "mensaje_observado": "Credenciales incorrectas.",
+      "sesion_autenticada": false
+    },
+    "cifrado": {
+      "algoritmo": "AES-256-GCM",
+      "nonce_bytes": 12,
+      "tag_bytes": 16,
+      "nonce_distinto": true,
+      "alteracion_rechazada": true,
+      "intercambio_entre_expedientes_rechazado": true,
+      "cifrado_ficticio_muestra": "J5nMCMx3IzyAV/9ZMcWRuQVOADLVq+6xNp7V42Z4b+44mWPYUSsp+uGWl4l2Wpy0Ho2uS1vA5kP0ziO+o+3bcf4J1y2jSWMd5npiyRS+zKWygshUG7tdWwEWcXrhWg=="
+    },
+    "secretos": {
+      "fuente": "variables de entorno",
+      "clave_de_sesion_utilizada": true,
+      "clave_de_cifrado_utilizada": true,
+      "inicio_sin_secretos_rechazado": true,
+      "valor_del_secreto": "omitido",
+      "huella_sha256_clave_externa_ficticia": "a9c527768a7f02392f67e1b6b0ec64ff1aa9a54e1ce3839c263a0645768a673b",
+      "huella_sha256_clave_consumida": "a9c527768a7f02392f67e1b6b0ec64ff1aa9a54e1ce3839c263a0645768a673b",
+      "error_sin_configuracion": "Configure una clave de sesión externa de al menos 32 caracteres."
+    },
+    "tls": {
+      "conexion_real": true,
+      "protocolo": "TLSv1.3",
+      "suite": "TLS_AES_256_GCM_SHA384",
+      "certificado_validado_con_ca_local": true,
+      "nombre_o_ip_verificado": "127.0.0.1",
+      "hostname_incorrecto_rechazado": true,
+      "respuesta": "HTTP/1.1 200 OK"
+    },
+    "errores": {
+      "http": 500,
+      "mensaje_generico": true,
+      "mensaje_observado": "No fue posible completar la operación.",
+      "secreto_en_respuesta": false,
+      "secreto_en_log": false,
+      "registro": {
+        "fecha_utc": "2026-11-05T23:12:36.889323+00:00",
+        "evento": "error_interno",
+        "actor_id": null,
+        "objeto_id": null,
+        "resultado": "error",
+        "solicitud_id": "d1439ef7-ae05-40c2-99ae-c0ac45bf8de8"
+      }
+    },
+    "autorizacion": {
+      "expediente_propio": 200,
+      "expediente_ajeno": 403,
+      "listado_reportes_administracion_para_estudiante": 403
+    },
+    "logging": {
+      "registros": [
+        {
+          "fecha_utc": "2026-11-05T23:12:37.099032+00:00",
+          "evento": "login_correcto",
+          "actor_id": 1,
+          "objeto_id": null,
+          "resultado": "correcto",
+          "solicitud_id": "e254b2ee-6b8c-428e-babe-e41841d3102a"
+        },
+        {
+          "fecha_utc": "2026-11-05T23:12:37.099032+00:00",
+          "evento": "expediente_consultado",
+          "actor_id": 1,
+          "objeto_id": 1,
+          "resultado": "correcto",
+          "solicitud_id": "9fc957ef-0560-4089-ace1-8e780271e35b"
+        },
+        {
+          "fecha_utc": "2026-11-05T23:12:37.099032+00:00",
+          "evento": "expediente_consultado",
+          "actor_id": 1,
+          "objeto_id": 1,
+          "resultado": "correcto",
+          "solicitud_id": "4fb222e3-d0ec-4631-91b9-5da838664519"
+        },
+        {
+          "fecha_utc": "2026-11-05T23:12:37.109834+00:00",
+          "evento": "expediente_modificado",
+          "actor_id": 1,
+          "objeto_id": 1,
+          "resultado": "correcto",
+          "solicitud_id": "e4b28d19-6989-4785-9166-afc4574fdef4"
+        },
+        {
+          "fecha_utc": "2026-11-05T23:12:37.109834+00:00",
+          "evento": "expediente_consultado",
+          "actor_id": 1,
+          "objeto_id": 1,
+          "resultado": "correcto",
+          "solicitud_id": "0e417e21-11db-4a3f-ad1a-fb984ab72bf3"
+        },
+        {
+          "fecha_utc": "2026-11-05T23:12:37.114477+00:00",
+          "evento": "acceso_administrativo",
+          "actor_id": 1,
+          "objeto_id": null,
+          "resultado": "correcto",
+          "solicitud_id": "cd689d1f-273e-4f39-9a12-ee6b491a5542"
+        }
+      ],
+      "campos_limitados": true,
+      "passwords_tokens_claves_y_datos_personales_en_registros": false
+    },
+    "sesiones": {
+      "cookie_secure": true,
+      "cookie_httponly": true,
+      "samesite": "Lax",
+      "csrf_ausente_http": 400,
+      "csp_scripts_bloqueados": true
+    },
+    "bloqueo": {
+      "fallos_previos": 5,
+      "http_posterior": 429,
+      "duracion_segundos": 60
+    },
+    "tls_memoria": {
+      "estado": "APROBADA",
+      "protocolo": "TLSv1.3",
+      "suite": "TLS_AES_256_GCM_SHA384",
+      "ca_local_y_nombre_verificados": true,
+      "certificado_verificado": [
+        [
+          "DNS",
+          "localhost"
+        ],
+        [
+          "IP Address",
+          "127.0.0.1"
+        ]
+      ],
+      "datos_http_cifrados": true,
+      "alcance": "Canal TLS de OpenSSL con MemoryBIO; no acredita la conexión de red del navegador"
+    },
+    "git": {
+      "herramienta": "Gitleaks",
+      "version": "8.30.1",
+      "codigo_salida": 1,
+      "hallazgos": 1,
+      "regla": "credencial-ficticia-masi",
+      "commit_expuesto": "e7cb8926f7b4377d68f7994cb329d47f7b07d643",
+      "secreto_ausente_del_archivo_actual": true,
+      "secreto_detectado_en_historial": true,
+      "credencial_sintetica": true,
+      "verificacion_de_validez_en_servicio_externo": "No aplica; credencial ficticia"
+    }
+  }
+}

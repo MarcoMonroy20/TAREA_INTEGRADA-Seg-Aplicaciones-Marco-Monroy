@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Expediente académico</p><h1>{{ alumno['nombre'] }} {{ alumno['apellido'] }}</h1><p>{{ alumno['carnet'] }} · Datos ficticios del laboratorio</p></div>
+<section class="panel ancho"><p class="sobretitulo">Calificación actual</p><p class="calificacion">{{ datos['nota'] }} <span>/ 100</span></p><h2>Observación</h2><p>{{ datos['observacion'] }}</p>
+{% if g.user['rol'] == 'administrador' %}<hr><h2>Actualizar expediente</h2><form method="post"><input type="hidden" name="csrf_token" value="{{ session['csrf'] }}"><label for="nota">Calificación</label><input id="nota" name="nota" type="number" min="0" max="100" step="0.01" value="{{ datos['nota'] }}" required><label for="observacion">Observación académica</label><textarea id="observacion" name="observacion" rows="3" maxlength="500">{{ datos['observacion'] }}</textarea><button type="submit">Guardar cambios</button></form>{% endif %}
+</section>
+{% endblock %}

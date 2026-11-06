@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Acceso restringido</p><h1>Administración</h1><p>Esta sección está disponible para el rol administrador.</p></div>
+<section class="panel ancho"><h2>Operaciones disponibles</h2><p>Desde el directorio puede consultar y actualizar expedientes. La sección de reportes permite exportar la información académica ficticia.</p><p>El acceso a esta sección queda registrado para su verificación.</p><a class="boton" href="{{ url_for('estudiantes') }}">Abrir directorio de estudiantes</a></section>
+{% endblock %}

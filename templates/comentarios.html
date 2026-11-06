@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="encabezado"><p class="sobretitulo">Comunidad del laboratorio</p><h1>Comentarios</h1><p>Los mensajes se presentan como texto.</p></div>
+<div class="columnas comentarios"><section class="panel"><h2>Publicar comentario</h2><form method="post"><input type="hidden" name="csrf_token" value="{{ session['csrf'] }}"><label for="comentario">Mensaje</label><textarea id="comentario" name="comentario" rows="5" maxlength="1000" required></textarea><button type="submit">Publicar</button></form></section>
+<section><h2>Mensajes recientes</h2>{% for item in comentarios %}<article class="mensaje"><small>Usuario {{ item['usuario_id'] }} · Mensaje {{ item['id'] }}</small><p class="texto-comentario">{{ item['texto'] }}</p></article>{% else %}<p class="secundario">Todavía no se han publicado comentarios.</p>{% endfor %}</section></div>
+{% endblock %}
