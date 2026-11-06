@@ -16,8 +16,6 @@ La preparación conserva los datos de ejecuciones anteriores. Si detecta archivo
 
 El servidor utiliza una CA local de laboratorio y un certificado válido para `localhost` y `127.0.0.1`. La CA no es pública. El navegador necesita una configuración de confianza específica para el laboratorio; no se instala ninguna raíz de confianza de forma automática. La clave privada de la CA se descarta tras emitir el certificado. El certificado del servidor vence a los siete días.
 
-En el equipo de verificación, Norton interceptó inicialmente las conexiones locales y presentó un certificado con emisor `Norton Web/Mail Shield Untrusted Root`, distinto del certificado del laboratorio. La prueba rechazó esa cadena. El responsable del equipo agregó una exclusión limitada a `https://127.0.0.1`. Después se aprobó la conexión HTTPS real con validación de CA e identidad y rechazo de un nombre incorrecto. No se desactivó la validación del certificado.
-
 El caso 10 usa el puerto local 8444. El servidor del portal usa 8443. El navegador sigue necesitando reconocer la CA local para mostrar una conexión de confianza; la verificación automática la carga expresamente y no modifica el almacén de certificados de Windows. Si el navegador muestra una advertencia, la revisión de confianza corresponde al responsable del equipo. La prueba no implica que todos los navegadores confíen automáticamente en esta CA. Retire la excepción de Norton después del laboratorio. No se necesita publicar el portal en Internet.
 
 ## Verificación
