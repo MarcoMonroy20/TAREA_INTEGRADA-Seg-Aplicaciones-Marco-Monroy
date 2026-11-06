@@ -39,11 +39,7 @@ Los resultados se guardan en `evidencias/resultados_pruebas.json`, `ejecucion_pr
 | `preparar.py` | Configuración y certificados ficticios del equipo |
 | `ejecutar.py` | Servidor HTTPS limitado a 127.0.0.1:8443 |
 | `pruebas.py` | Pruebas técnicas y generación de evidencias reales |
-| `documentacion/Informe_tecnico.docx` | Análisis, implementación, resultados y defensa |
-| `documentacion/Matriz_seguridad.md` | Riesgo, causa, control y verificación |
-| `documentacion/Guia_demostracion.md` | Secuencia práctica y preguntas de defensa |
 | `evidencias_visuales.py` | Genera el visor a partir de los resultados reales registrados |
-| `documentacion/Entrega_repositorio.md` | Lista de archivos y pasos para entregar en GitHub |
 
 ## Alcance y permisos
 
