@@ -1,0 +1,10 @@
+title = "Reglas del laboratorio universitario"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "credencial-ficticia-masi"
+description = "Credencial sintética del ejercicio académico"
+regex = '''masi_demo_[a-f0-9]{32}'''
+keywords = ["masi_demo_"]
