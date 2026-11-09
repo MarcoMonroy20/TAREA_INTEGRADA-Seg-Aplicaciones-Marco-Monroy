@@ -1,0 +1,22 @@
+[
+ {
+  "RuleID": "credencial-ficticia-masi",
+  "Description": "Credencial sintética del ejercicio académico",
+  "StartLine": 1,
+  "EndLine": 1,
+  "StartColumn": 19,
+  "EndColumn": 60,
+  "Match": "REDACTED",
+  "Secret": "REDACTED",
+  "File": "config_ficticia.py",
+  "SymlinkFile": "",
+  "Commit": "3e1299589ac61ce9b57482d2b1f1079559465571",
+  "Entropy": 4.165894,
+  "Author": "Laboratorio",
+  "Email": "laboratorio@example.invalid",
+  "Date": "2026-11-09T02:38:49Z",
+  "Message": "Agregar configuración ficticia del laboratorio",
+  "Tags": [],
+  "Fingerprint": "3e1299589ac61ce9b57482d2b1f1079559465571:config_ficticia.py:credencial-ficticia-masi:1"
+ }
+]
